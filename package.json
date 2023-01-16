@@ -1,11 +1,13 @@
 {
-  "name": "vue-flexable-dnd-ts",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-flexable-dnd",
+  "version": "0.1.4",
+  "private": false,
+  "main": "lib/vue-flexable-dnd.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:vue-flexable-dnd": "vue-cli-service build --target lib --dest lib packages/index.ts"
   },
   "dependencies": {
     "core-js": "^3.6.5",
