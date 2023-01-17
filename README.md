@@ -17,7 +17,7 @@ _**A simple and powerful drag&drop component for Vue developers**_
 - More features will be adapted in the future
   
 ## 👀  preview
-> [ 🔍 see example website ](https://vicissitidues.github.io/vue-flexable-dnd/dist/index.html)
+> [ 🔍 see example website ](https://vicissitidues.github.io/vue-flexable-dnd-ts/dist/index.html)
 
 ## 💻 Gatting started
 #### component install 
@@ -26,7 +26,7 @@ npm install vue-flexable-dnd
 ```
 #### 🏭 import into your project
 ```js
-VUE3:
+VUE3: [src/main.js]
 import { createApp } from 'vue'
 import App from './App.vue'
 import VDContainer from 'vue-flexable-dnd'
@@ -34,7 +34,7 @@ import VDContainer from 'vue-flexable-dnd'
 createApp(App).use(VDContainer).mount('#app')
 // after that, you can use <VDContainer> anywhere in proejct
 ```
-#### 📃 import into your page
+#### 📃 import into your page（Not supported temporarily）
 ```js
 import VDComponent from 'vue-flexable-dnd';
 
