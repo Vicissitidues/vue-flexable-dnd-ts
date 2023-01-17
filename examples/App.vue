@@ -85,6 +85,6 @@ export default {
 }
 
 .controller-container{
-  display: inline-block;
+  display: flex;
 }
 </style>
