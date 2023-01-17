@@ -9,6 +9,7 @@ _**A simple and powerful drag&drop component for Vue developers**_
 
 ## 💡 Highlights
 - Ability to use flex layout
+- smooth animation
 - When there are many elements, excellent performance can be maintained
 - There are two drag&drop modes: Replace and Sort
 - Ability to customize internal styles and layout
@@ -50,7 +51,7 @@ _HTML_
 ···
 <VDContainer
     :width=350          //「Number」 outer container's width
-    :animation=false    //「Boolean」 show animation or not while change the position of the target
+    :animation=true    //「Boolean」 show animation or not while change the position of the target
     :data=data          //「Array【object】」 original data
     type="sort"         //「string」 sort | switch, 「sort」default, typeof sort mode
     @getData=funcName   //「function」 Callback function，Callback function to receive   array after modified
