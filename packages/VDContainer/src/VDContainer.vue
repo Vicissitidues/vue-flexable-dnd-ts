@@ -27,7 +27,7 @@ import { istate, eType } from './VDContainer'
 // eslint-disable-next-line no-undef, no-unused-vars
 const props = defineProps<{
     width: number,
-    height: string,
+    height: number,
     data: [],
     animation: boolean,
     row: number,
@@ -61,7 +61,7 @@ const drop = (event: DragEvent, index: number) => {
   } else if (props.type === eType.SWITCH) {
     items.value[index] = items.value.splice(state.target, 1, items.value[index])[0]
   } else {
-    console.error("wrong type name,check <VDContainer></VDContainer>element's [type] modal")
+    window.console.error("wrong type name,check <VDContainer></VDContainer>element's [type] modal")
   }
   emit('getData', items.value)
 }

@@ -1,5 +1,5 @@
 <template>
-  <VDContainer :width='width' :height="400" :row=4 :animation='false' :data='data' :type='type'>
+  <VDContainer :width='width' :height="400" :row=4 :animation='false' @getData="getData" :data='data' :type='type'>
     <!-- Required; can get data and index -->
     <template v-slot:VDC="{ data }">
       <!-- you can customize your own element -->
@@ -13,7 +13,7 @@
   <div class="controller-container">
     <div>
       <span>change width：</span>
-      <input type="number" step="50" v-model="width" >
+      <input type="number" step="50" v-model="width">
     </div>
     <div>
       <span>select sort type：</span>
@@ -26,11 +26,21 @@
 </template>
 
 <script lang="ts">
+
+interface ireply {
+  name: string,
+  price: string,
+  icon: string,
+}
+interface idata {
+  data: Array<ireply>,
+  type: string,
+  width: number
+}
 export default {
   name: 'App',
   components: {},
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  data () {
+  data (): idata {
     return {
       data: [
         {
@@ -60,6 +70,9 @@ export default {
     }
   },
   methods: {
+    getData (reply: Array<ireply>): void {
+      window.console.log('here comes data after sorted', reply)
+    }
   }
 }
 </script>
@@ -84,7 +97,7 @@ export default {
   background: lightblue;
 }
 
-.controller-container{
+.controller-container {
   display: flex;
 }
 </style>
