@@ -12,7 +12,7 @@ _**A simple and powerful drag&drop component for Vue developers**_
 - There are two drag&drop modes: Replace and Sort
 - Ability to customize internal styles and layout
 - Flexible function slot
-- More functions will be adapted in the future
+- More features will be adapted in the future
   
 ## 👀  preview
 > [ 🔍 see example website ](https://vicissitidues.github.io/vue-flexable-dnd/dist/index.html)
@@ -42,7 +42,7 @@ export default{
     }
 }
 ```
-#### 🐟 grammar
+#### 🧩 apply to your project
 _HTML_
 
 ```  html
@@ -103,7 +103,7 @@ _if that doesnt work, please refer to the contents inside ```vue-flexable-dnd/ex
 _**Any 🤔️ issue or 👷 job for me：**_
 > contact email: weijia618@outlook.com
 
-[🙋‍♀️🙋🏿‍♂️🙋🏼send issue And suggestions(Global) ](https://github.com/Vicissitidues/vue-flexable-dnd/issues/new)
+[🙋‍♀️🙋🏿‍♂️🙋🏼send issue And suggestions(Global) ](https://github.com/Vicissitidues/vue-flexable-dnd-ts/issues/new)
 
 [ &emsp;&emsp;&emsp;&nbsp; send issue And suggestions(CN) ](https://gitee.com/vicissitidues/vue-flexable-dnd/issues/new)
 
@@ -136,3 +136,6 @@ ___
 #### v0.1.4
 - add TypeScript support
 - add prettier restriction
+#### v0.1.5
+- add several config to package.json
+- update readme file

@@ -9,6 +9,17 @@
     "lint": "vue-cli-service lint",
     "build:vue-flexable-dnd": "vue-cli-service build --target lib --dest lib packages/index.ts"
   },
+  "keywords": [
+    "vue",
+    "vue3",
+    "dnd",
+    "drag and drop"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vicissitidues/vue-flexable-dnd-ts.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0"

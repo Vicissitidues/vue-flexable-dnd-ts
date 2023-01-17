@@ -13,14 +13,14 @@
   </VDContainer>
   <div>
     <span>select type of component：</span>
-    <select @change="change" v-model="type">
+    <select v-model="type">
       <option value="sort">sort</option>
       <option value="switch">switch</option>
     </select>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'App',
   components: {},
@@ -53,7 +53,7 @@ export default {
     }
   },
   methods: {
-    getDataFromComp (data) {
+    getDataFromComp (data:any):void {
       this.data = data
     }
   }

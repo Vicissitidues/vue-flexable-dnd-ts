@@ -3,6 +3,12 @@ node_modules
 /dist
 /lib
 
+# some formatter
+.browserlistrc
+.editorconfig
+.eslintrc.js
+shims.d.ts
+
 # local env files
 .env.local
 .env.*.local
