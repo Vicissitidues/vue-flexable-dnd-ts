@@ -5,8 +5,9 @@
   "main": "lib/vue-flexable-dnd.umd.min.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build examples/main.ts",
+    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "test": "vue-cli-service build --dest output examples/main.ts",
     "build:vue-flexable-dnd": "vue-cli-service build --target lib --dest lib packages/index.ts"
   },
   "keywords": [
