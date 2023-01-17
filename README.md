@@ -136,6 +136,7 @@ ___
 #### v0.1.4
 - add TypeScript support
 - add prettier restriction
-#### v0.1.5
+#### v0.2.0
+- now the component is animated
 - add several config to package.json
 - update readme file

@@ -1,13 +1,15 @@
 <template>
     <div class="vdc-out-container" :style="`width:${props.width}px`">
-        <div class="vdc-item-container" draggable="true" v-for="item, index in state.data" :key="index"
-            @dragstart="drag($event, index)" @dragover="over" @drop="drop($event, index)">
-            <slot name="VDC" :data="item" :index="index"></slot>
-        </div>
+        <TransitionGroup name="fade" tag="div" class="vdc-trans-group-container" >
+            <div class="vdc-item-container" draggable="true" v-for="item, index in items" :key="item"
+                @dragstart="drag($event, index)" @dragover="over" @drop="drop($event, index)">
+                <slot name="VDC" :data="item" :index="index"></slot>
+            </div>
+        </TransitionGroup>
     </div>
 </template>
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import { istate, eType } from './VDContainer'
 /**
  * @description a simple It is used to implement drag and drop
@@ -36,6 +38,9 @@ const state: istate = reactive({
   ...props,
   target: 0
 })
+const getItems = () => props.data
+const items = ref(getItems())
+
 // eslint-disable-next-line no-undef
 const emit = defineEmits([
   'getData'
@@ -52,17 +57,22 @@ const over = (event: DragEvent) => {
 // while drop the object into target
 const drop = (event: DragEvent, index: number) => {
   if (props.type === eType.SORT) {
-    state.data.splice(index, 0, state.data.splice(state.target, 1)[0])
+    items.value.splice(index, 0, items.value.splice(state.target, 1)[0])
   } else if (props.type === eType.SWITCH) {
-    state.data[index] = state.data.splice(state.target, 1, state.data[index])[0]
+    items.value[index] = items.value.splice(state.target, 1, items.value[index])[0]
   } else {
     console.error("wrong type name,check <VDContainer></VDContainer>element's [type] modal")
   }
-  emit('getData', state.data)
+  emit('getData', items.value)
 }
 </script>
 
 <style>
+.vdc-trans-group-container{
+   display: flex;
+   flex-wrap: inherit;
+   -ms-flex-wrap: inherit;
+}
 .vdc-out-container {
     display: flex;
     flex-wrap: wrap;
@@ -72,5 +82,24 @@ const drop = (event: DragEvent, index: number) => {
 .vdc-item-container:hover {
     box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. 声明进入和离开的状态 */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+/* 3. 确保离开的项目被移除出了布局流
+      以便正确地计算移动时的动画效果。 */
+.fade-leave-active {
+  position: absolute;
 }
 </style>

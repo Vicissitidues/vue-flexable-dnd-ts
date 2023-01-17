@@ -1,22 +1,27 @@
 <template>
-  <VDContainer :width=350 :height="400" :row=4 :animation='false' :data=data @getData=getDataFromComp :type=type>
+  <VDContainer :width='width' :height="400" :row=4 :animation='false' :data='data' :type='type'>
     <!-- Required; can get data and index -->
-    <!-- eslint-disable-next-line vue/no-unused-vars -->
-    <template v-slot:VDC="{ data, index }">
+    <template v-slot:VDC="{ data }">
       <!-- you can customize your own element -->
-      <div class="container">
+      <div class="container-child">
         <div>{{ data.price }}</div>
         <div> {{ data.name }}</div>
         <div>{{ data.icon }}</div>
       </div>
     </template>
   </VDContainer>
-  <div>
-    <span>select type of component：</span>
-    <select v-model="type">
-      <option value="sort">sort</option>
-      <option value="switch">switch</option>
-    </select>
+  <div class="controller-container">
+    <div>
+      <span>change width：</span>
+      <input type="number" step="50" v-model="width" >
+    </div>
+    <div>
+      <span>select sort type：</span>
+      <select v-model="type">
+        <option value="sort">sort</option>
+        <option value="switch">switch</option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -24,6 +29,7 @@
 export default {
   name: 'App',
   components: {},
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   data () {
     return {
       data: [
@@ -49,13 +55,11 @@ export default {
           icon: '¢'
         }
       ],
-      type: 'sort'
+      type: 'sort',
+      width: 400
     }
   },
   methods: {
-    getDataFromComp (data:any):void {
-      this.data = data
-    }
   }
 }
 </script>
@@ -70,7 +74,7 @@ export default {
   margin-top: 60px;
 }
 
-.container {
+.container-child {
   color: red;
   width: 100px;
   height: 100px;
@@ -78,5 +82,9 @@ export default {
   margin: 5px;
   border-radius: 10px;
   background: lightblue;
+}
+
+.controller-container{
+  display: inline-block;
 }
 </style>
