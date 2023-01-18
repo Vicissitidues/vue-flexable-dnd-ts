@@ -1,6 +1,6 @@
-# vue-flexable-dnd
+#  <img src="https://raw.githubusercontent.com/Vicissitidues/vue-flexable-dnd-ts/examp/public/icon.png" alt="logo" style="zoom:50%;" />vue-flexable-dnd
 
-_**A simple and powerful drag&drop component for Vue developers**_
+_**A simple and powerful drag&drop component for Vue developers**_ 
 
 > Thank you for install vue-flexable-dnd component ———  A drag and drop component developed for vue, which can sovle the problem that other dnd components can't do，like can use flex layout and sort mode
 
