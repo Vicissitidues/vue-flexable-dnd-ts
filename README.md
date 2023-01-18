@@ -1,10 +1,10 @@
-# <div style="display:flex;align-items:center"><img src="https://raw.githubusercontent.com/Vicissitidues/vue-flexable-dnd-ts/examp/public/icon.png" alt="logo" style="zoom: 50%" />vue-flexable-dnd</div> 
+# <img src="https://raw.githubusercontent.com/Vicissitidues/vue-flexable-dnd-ts/examp/public/icon.png" alt="logo" style="zoom: 40%;" /> <sup>vue-flexable-dnd</sup>
 
 _**A simple and powerful drag&drop component for Vue developers**_
 
-> Thank you for install vue-flexable-dnd component ———  A drag and drop component developed for vue, which can sovle the problem that other dnd components can't do，like can use flex layout and sort mode
+>  Thank you for install vue-flexable-dnd component ———  A drag and drop component developed for vue, which can sovle the problem that other dnd components can't do，like can use flex layout and sort mode
 
-<!-- > 一个为vue开发的拖拽组件，解决了其他dnd组件无法进行弹性布局与排序模式的问题 -->
+ <!-- > 一个为vue开发的拖拽组件，解决了其他dnd组件无法进行弹性布局与排序模式的问题 -->
 ![example](https://github.com/Vicissitidues/vue-flexable-dnd-ts/blob/animation/gif/screenRecord.gif?raw=true)
 
 ## 💡 Highlights
@@ -34,7 +34,7 @@ import VDContainer from 'vue-flexable-dnd'
 createApp(App).use(VDContainer).mount('#app')
 // after that, you can use <VDContainer> anywhere in proejct
 ```
-#### 📃 import into your page（Not supported temporarily）
+#### 📃 <del>import into your page</del>（Not supported temporarily）
 ```js
 import VDComponent from 'vue-flexable-dnd';
 
