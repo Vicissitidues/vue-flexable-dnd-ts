@@ -1,4 +1,4 @@
-#  <img src="https://raw.githubusercontent.com/Vicissitidues/vue-flexable-dnd-ts/examp/public/icon.png" alt="logo" style="zoom:50%;" />vue-flexable-dnd
+# <div style="display:flex;align-items:center"><img src="https://raw.githubusercontent.com/Vicissitidues/vue-flexable-dnd-ts/examp/public/icon.png" alt="logo" style="zoom: 50%" />vue-flexable-dnd</div> 
 
 _**A simple and powerful drag&drop component for Vue developers**_ 
 
