@@ -5,7 +5,7 @@
       <!-- you can customize your own element -->
       <div class="container-child">
         <div>{{ data.price }}</div>
-        <h1> {{ data.name }}</h1>
+        <div> {{ data.name }}</div>
         <div>{{ data.icon }}</div>
       </div>
     </template>
@@ -44,23 +44,23 @@ export default {
     return {
       data: [
         {
-          name: 'target0',
+          name: 'target1',
           price: '11',
           icon: '💰'
         }, {
-          name: 'target1',
+          name: 'target2',
           price: '10',
           icon: '🌲'
         }, {
-          name: 'target2',
+          name: 'target3',
           price: '51',
           icon: '👱🏿‍♂️'
         }, {
-          name: 'target3',
+          name: 'target4',
           price: '31',
           icon: '👻'
         }, {
-          name: 'target4',
+          name: 'target5',
           price: '14s',
           icon: '¢'
         }

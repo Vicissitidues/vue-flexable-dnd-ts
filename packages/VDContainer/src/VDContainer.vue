@@ -1,10 +1,8 @@
 <template>
     <div class="vdc-out-container" :style="`width:${props.width}px`">
-        <TransitionGroup name="fade" tag="div" class="vdc-trans-group-container">
+        <TransitionGroup name="fade" tag="div" class="vdc-trans-group-container" >
             <div class="vdc-item-container" draggable="true" v-for="item, index in items" :key="item"
-                @dragstart="drag($event, index)"  @dragenter="enter($event, index)"
-               @dragleave="leave($event, index)"
-                @dragover="over($event, index)" @drop="drop($event, index)">
+                @dragstart="drag($event, index)" @dragover="over" @drop="drop($event, index)">
                 <slot name="VDC" :data="item" :index="index"></slot>
             </div>
         </TransitionGroup>
@@ -25,13 +23,12 @@ import { istate, eType } from './VDContainer'
  * type:      [sort|switch] function type of dnd component
  *            sort: default; after dropped,object will insert into target and all elements will sort;
  *            switch: Optional, switch object and target,other elements will stand still;
- * dynamic:   dynamic mode, can have elements dynamically laid out as you drag
 */
 // eslint-disable-next-line no-undef, no-unused-vars
 const props = defineProps<{
     width: number,
     height: number,
-    data: Array<any>,
+    data: [],
     animation: boolean,
     row: number,
     type: string,
@@ -39,12 +36,7 @@ const props = defineProps<{
 
 const state: istate = reactive({
   ...props,
-  preTarget: 0,
-  target: 0,
-  mode: true,
-  addable: false,
-  delable: false,
-  velement: true
+  target: 0
 })
 const getItems = () => props.data
 const items = ref(getItems())
@@ -55,41 +47,12 @@ const emit = defineEmits([
 ])
 // while target is begin dragged
 const drag = (event: DragEvent, index: number) => {
-  state.preTarget = index
   state.target = index
-  console.log('hand', state.target)
 }
-const leave = (event: DragEvent, index: number) => {
-  console.log('leaved', state.preTarget, state.target, index)
-  if (state.preTarget === index && state.delable) {
-    state.delable = false
-    state.velement = true
-    items.value.splice(index, 1)
-    event.preventDefault()
-  }
-}
-const enter = (event: DragEvent, index: number) => {
-  console.log('entered')
-  if (index !== state.preTarget) {
-  }
-}
+
 // while target is on the  drop point
-const over = (event: DragEvent, index: number) => {
-  if (state.mode) {
-    console.log('tar:', state.preTarget, state.target, index)
-    if (state.velement) {
-      if (index !== state.target) {
-        state.preTarget = index
-        items.value.splice(index, 0, {})
-        state.velement = false
-        state.delable = true
-        event.preventDefault()
-      }
-    }
-    event.preventDefault()
-  } else {
-    event.preventDefault()
-  }
+const over = (event: DragEvent) => {
+  event.preventDefault()
 }
 // while drop the object into target
 const drop = (event: DragEvent, index: number) => {
@@ -105,12 +68,11 @@ const drop = (event: DragEvent, index: number) => {
 </script>
 
 <style>
-.vdc-trans-group-container {
-    display: flex;
-    flex-wrap: inherit;
-    -ms-flex-wrap: inherit;
+.vdc-trans-group-container{
+   display: flex;
+   flex-wrap: inherit;
+   -ms-flex-wrap: inherit;
 }
-
 .vdc-out-container {
     display: flex;
     flex-wrap: wrap;
@@ -125,19 +87,19 @@ const drop = (event: DragEvent, index: number) => {
 .fade-move,
 .fade-enter-active,
 .fade-leave-active {
-    transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 }
 
 /* 2. 声明进入和离开的状态 */
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
-    transform: scaleY(0.01) translate(30px, 0);
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
 }
 
 /* 3. 确保离开的项目被移除出了布局流
       以便正确地计算移动时的动画效果。 */
 .fade-leave-active {
-    position: absolute;
+  position: absolute;
 }
 </style>
