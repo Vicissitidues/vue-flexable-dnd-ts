@@ -2,6 +2,10 @@
 
 _**A simple and powerful drag&drop component for Vue developers**_
 
+![info](https://img.shields.io/npm/dw/vue-flexable-dnd?label=Downloads&logo=npm%20downloads&style=flat)
+![version](https://img.shields.io/github/package-json/v/vicissitidues/vue-flexable-dnd-ts?style=flat&color=green)
+![license](https://img.shields.io/npm/l/vue-flexable-dnd?&style=flat&color=orange)
+
 >  Thank you for install vue-flexable-dnd component ———  A drag and drop component developed for vue, which can sovle the problem that other dnd components can't do，like can use flex layout and sort mode
 
  <!-- > 一个为vue开发的拖拽组件，解决了其他dnd组件无法进行弹性布局与排序模式的问题 -->
